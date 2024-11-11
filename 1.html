@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .navbar h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .menu-section {
+            margin-bottom: 20px;
+        }
+        .menu-section h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        .item-image {
+            width: 100px; /* Adjust the width as needed */
+            height: auto;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        .item-name {
+            font-weight: bold;
+            color: #333;
+        }
+        .item-description {
+            color: #666;
+            margin: 5px 0;
+        }
+        .item-price {
+            color: #333;
+            font-weight: bold;
+            margin-left: auto;
+        }
+        .order-number {
+            font-size: 0.9em;
+            color: #888;
+            margin-right: 10px;
+        }
+        .quantity {
+            margin-left: 10px;
+            padding: 5px;
+        }
+        .order-button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .order-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h1>Restaurant Menu</h1>
+</div>
+
+<div class="container">
+    <div class="menu-section">
+        <h2>Appetizers</h2>
+        <div class="menu-item">
+            <img src="bruschetta.jpg" alt="Bruschetta" class="item-image">
+            <div>
+                <span class="order-number">#1</span>
+                <span class="item-name">Bruschetta</span>
+                <p class="item-description">Grilled bread topped with diced tomatoes, basil, and garlic.</p>
+            </div>
+            <span class="item-price">$6.99</span>
+            <select class="quantity">
+                <option value="0">Qty</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <button class="order-button">Order</button>
+        </div>
+        <div class="menu-item">
+            <img src="stuffed_mushrooms.jpg" alt="Stuffed Mushrooms" class="item-image">
+            <div>
+                <span class="order-number">#2</span>
+                <span class="item-name">Stuffed Mushrooms</span>
+                <p class="item-description">Mushrooms filled with cheese and herbs, baked to perfection.</p>
+            </div>
+            <span class="item-price">$7.49</span>
+            <select class="quantity">
+                <option value="0">Qty</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <button class="order-button">Order</button>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h2>Main Courses</h2>
+        <div class="menu-item">
+            <img src="grilled_salmon.jpg" alt="Grilled Salmon" class="item-image">
+            <div>
+                <span class="order-number">#3</span>
+                <span class="item-name">Grilled Salmon</span>
+                <p class="item-description">Fresh salmon fillet grilled and served with lemon butter sauce.</p>
+            </div>
+            <span class="item-price">$18.99</span>
+            <select class="quantity">
+                <option value="0">Qty</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <button class="order-button">Order</button>
+        </div>
+        <div class="menu-item">
+            <img src="chicken_alfredo.jpg" alt="Chicken Alfredo" class="item-image">
+            <div>
+                <span class="order-number">#4</span>
+                <span class="item-name">Chicken Alfredo</span>
+                <p class="item-description">Pasta in a creamy Alfredo sauce with grilled chicken.</p>
+            </div>
+            <span class="item-price">$15.99</span>
+            <select class="quantity">
+                <option value="0">Qty</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <button class="order-button">Order</button>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h2>Desserts</h2>
+        <div class="menu-item">
+            <img src="tiramisu.jpg" alt="Tiramisu" class="item-image">
+            <div>
+                <span class="order-number">#5</span>
+                <span class="item-name">Tiramisu</span>
+                <p class="item-description">Classic Italian dessert made with coffee and mascarpone.</p>
+            </div>
+            <span class="item-price">$6.99</span>
+            <select class="quantity">
+                <option value="0">Qty</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <button class="order-button">Order</button>
+        </div>
+        <div class="menu-item">
+            <img src="cheesecake.jpg" alt="Cheesecake" class="item-image">
+            <div>
+                <span class="order-number">#6</span>
+                <span class="item-name">Cheesecake</span>
+                <p class="item-description">Rich and creamy cheesecake topped with fresh berries.</p>
+            </div>
+            <span class="item-price">$7.49</span>
+            <select class="quantity">
+                <option value="0">Qty</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <button class="order-button">Order</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
