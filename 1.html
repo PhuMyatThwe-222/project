@@ -243,6 +243,40 @@
             <button class="order-button">Order</button>
         </div>
     </div>
+<div class="total" id="total">Total: $0.00</div>
+<button class="order-button" id="receipt-button" onclick="generateReceipt()">Generate Receipt</button>
+
+<div class="receipt" id="receipt" style="display: none;"></div>
+</div>
+
+<script>
+let totalAmount = 0;
+const orderDetails = [];
+
+function addToOrder(name, price, button) {
+    const quantitySelect = button.previousElementSibling;
+    const quantity = parseInt(quantitySelect.value);
+    
+    if (quantity > 0) {
+        totalAmount += price * quantity;
+        orderDetails.push({ name, price, quantity });
+        document.getElementById('total').innerText = 'Total: $' + totalAmount.toFixed(2);
+        quantitySelect.value = 0; // Reset quantity after ordering
+    } else {
+        alert('Please select a quantity greater than 0.');
+    }
+}
+
+function generateReceipt() {
+    const receiptDiv = document.getElementById('receipt');
+    receiptDiv.style.display = 'block';
+    receiptDiv.innerHTML = '<h3>Receipt</h3>';
+    orderDetails.forEach(item => {
+        receiptDiv.innerHTML += `${item.name} - $${item.price.toFixed(2)} x ${item.quantity}<br>`;
+    });
+    receiptDiv.innerHTML += `<strong>Total: $${totalAmount.toFixed(2)}</strong>`;
+}
+</script>
 </div>
 
 </body>
