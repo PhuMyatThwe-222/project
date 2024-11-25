@@ -47,7 +47,7 @@
             border-bottom: none;
         }
         .item-image {
-            width: 100px; /* Adjust the width as needed */
+            width: 100px;
             height: auto;
             border-radius: 5px;
             margin-right: 15px;
@@ -65,11 +65,6 @@
             font-weight: bold;
             margin-left: auto;
         }
-        .order-number {
-            font-size: 0.9em;
-            color: #888;
-            margin-right: 10px;
-        }
         .quantity {
             margin-left: 10px;
             padding: 5px;
@@ -85,6 +80,22 @@
         .order-button:hover {
             background-color: #45a049;
         }
+        .total {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .receipt {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+            display: none;
+        }
+        .receipt h3 {
+            margin: 0 0 10px;
+        }
     </style>
 </head>
 <body>
@@ -99,7 +110,6 @@
         <div class="menu-item">
             <img src="bruschetta.jpg" alt="Bruschetta" class="item-image">
             <div>
-                <span class="order-number">#1</span>
                 <span class="item-name">Bruschetta</span>
                 <p class="item-description">Grilled bread topped with diced tomatoes, basil, and garlic.</p>
             </div>
@@ -111,18 +121,12 @@
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
             </select>
-            <button class="order-button">Order</button>
+            <button class="order-button" onclick="addToOrder('Bruschetta', 6.99, this)">Order</button>
         </div>
         <div class="menu-item">
             <img src="stuffed_mushrooms.jpg" alt="Stuffed Mushrooms" class="item-image">
             <div>
-                <span class="order-number">#2</span>
                 <span class="item-name">Stuffed Mushrooms</span>
                 <p class="item-description">Mushrooms filled with cheese and herbs, baked to perfection.</p>
             </div>
@@ -134,13 +138,8 @@
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
             </select>
-            <button class="order-button">Order</button>
+            <button class="order-button" onclick="addToOrder('Stuffed Mushrooms', 7.49, this)">Order</button>
         </div>
     </div>
 
@@ -149,7 +148,6 @@
         <div class="menu-item">
             <img src="grilled_salmon.jpg" alt="Grilled Salmon" class="item-image">
             <div>
-                <span class="order-number">#3</span>
                 <span class="item-name">Grilled Salmon</span>
                 <p class="item-description">Fresh salmon fillet grilled and served with lemon butter sauce.</p>
             </div>
@@ -161,18 +159,12 @@
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
             </select>
-            <button class="order-button">Order</button>
+            <button class="order-button" onclick="addToOrder('Grilled Salmon', 18.99, this)">Order</button>
         </div>
         <div class="menu-item">
             <img src="chicken_alfredo.jpg" alt="Chicken Alfredo" class="item-image">
             <div>
-                <span class="order-number">#4</span>
                 <span class="item-name">Chicken Alfredo</span>
                 <p class="item-description">Pasta in a creamy Alfredo sauce with grilled chicken.</p>
             </div>
@@ -184,13 +176,8 @@
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
             </select>
-            <button class="order-button">Order</button>
+            <button class="order-button" onclick="addToOrder('Chicken Alfredo', 15.99, this)">Order</button>
         </div>
     </div>
 
@@ -199,7 +186,6 @@
         <div class="menu-item">
             <img src="tiramisu.jpg" alt="Tiramisu" class="item-image">
             <div>
-                <span class="order-number">#5</span>
                 <span class="item-name">Tiramisu</span>
                 <p class="item-description">Classic Italian dessert made with coffee and mascarpone.</p>
             </div>
@@ -211,18 +197,12 @@
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
             </select>
-            <button class="order-button">Order</button>
+            <button class="order-button" onclick="addToOrder('Tiramisu', 6.99, this)">Order</button>
         </div>
         <div class="menu-item">
             <img src="cheesecake.jpg" alt="Cheesecake" class="item-image">
             <div>
-                <span class="order-number">#6</span>
                 <span class="item-name">Cheesecake</span>
                 <p class="item-description">Rich and creamy cheesecake topped with fresh berries.</p>
             </div>
@@ -234,50 +214,51 @@
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
             </select>
-            <button class="order-button">Order</button>
+            <button class="order-button" onclick="addToOrder('Cheesecake', 7.49, this)">Order</button>
         </div>
     </div>
-<div class="total" id="total">Total: $0.00</div>
-<button class="order-button" id="receipt-button" onclick="generateReceipt()">Generate Receipt</button>
 
-<div class="receipt" id="receipt" style="display: none;"></div>
+    <div class="total" id="total">Total: $0.00</div>
+    <button class="order-button" id="receipt-button" onclick="generateReceipt()">Generate Receipt</button>
+
+    <div class="receipt" id="receipt"></div>
 </div>
 
 <script>
-let totalAmount = 0;
-const orderDetails = [];
+    let totalAmount = 0;
+    const orderDetails = [];
 
-function addToOrder(name, price, button) {
-    const quantitySelect = button.previousElementSibling;
-    const quantity = parseInt(quantitySelect.value);
-    
-    if (quantity > 0) {
-        totalAmount += price * quantity;
-        orderDetails.push({ name, price, quantity });
-        document.getElementById('total').innerText = 'Total: $' + totalAmount.toFixed(2);
-        quantitySelect.value = 0; // Reset quantity after ordering
-    } else {
-        alert('Please select a quantity greater than 0.');
+    function addToOrder(name, price, button) {
+        const quantitySelect = button.previousElementSibling;
+        const quantity = parseInt(quantitySelect.value);
+        
+        if (quantity > 0) {
+            totalAmount += price * quantity;
+            orderDetails.push({ name, price, quantity });
+            document.getElementById('total').innerText = 'Total: $' + totalAmount.toFixed(2);
+            quantitySelect.value = 0; // Reset quantity after ordering
+        } else {
+            alert('Please select a quantity greater than 0.');
+        }
     }
-}
 
-function generateReceipt() {
-    const receiptDiv = document.getElementById('receipt');
-    receiptDiv.style.display = 'block';
-    receiptDiv.innerHTML = '<h3>Receipt</h3>';
-    orderDetails.forEach(item => {
-        receiptDiv.innerHTML += `${item.name} - $${item.price.toFixed(2)} x ${item.quantity}<br>`;
-    });
-    receiptDiv.innerHTML += `<strong>Total: $${totalAmount.toFixed(2)}</strong>`;
-}
+    function generateReceipt() {
+        const receiptDiv = document.getElementById('receipt');
+        receiptDiv.style.display = 'block';
+        receiptDiv.innerHTML = '<h3>Receipt</h3>';
+        
+        if (orderDetails.length === 0) {
+            receiptDiv.innerHTML += 'No items ordered.';
+            return;
+        }
+
+        orderDetails.forEach(item => {
+            receiptDiv.innerHTML += `${item.name} - $${item.price.toFixed(2)} x ${item.quantity}<br>`;
+        });
+        receiptDiv.innerHTML += `<strong>Total: $${totalAmount.toFixed(2)}</strong>`;
+    }
 </script>
-</div>
 
 </body>
 </html>
