@@ -3,39 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Menu</title>
+    <title>Restaurant Website</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
         }
-        .navbar {
+        header {
             background-color: #333;
             color: white;
-            padding: 1rem;
+            padding: 10px 0;
             text-align: center;
         }
-        .navbar h1 {
-            margin: 0;
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
         }
+        .hero {
+            background-image: url('background.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(199, 197, 197, 0.7);
+        }
+        .hero button {
+            padding: 15px 30px;
+            font-size: 1em;
+            color: white;
+            background-color: #e67e22;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .hero button:hover {
+            background-color: #d35400;
+        }
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .menu-item{
+            margin: 20px 0;
+        }
+        
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background: white;
+            background: rgb(43, 41, 41);
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(240, 237, 237, 0.1);
         }
         .menu-section {
             margin-bottom: 20px;
         }
         .menu-section h2 {
-            border-bottom: 2px solid #333;
+            border-bottom: 2px solid #d8d6d6da;
             padding-bottom: 10px;
             margin-bottom: 15px;
-            color: #333;
+            color: #f3f2f2;
         }
         .menu-item {
             display: flex;
@@ -54,14 +98,14 @@
         }
         .item-name {
             font-weight: bold;
-            color: #333;
+            color: #f3f2f2;
         }
         .item-description {
-            color: #666;
+            color: #f8f6f6;
             margin: 5px 0;
         }
         .item-price {
-            color: #333;
+            color: #fcfbfb;
             font-weight: bold;
             margin-left: auto;
         }
@@ -84,6 +128,7 @@
             margin-top: 20px;
             font-weight: bold;
             font-size: 1.2em;
+            color:#f1f1f1;
         }
         .receipt {
             margin-top: 20px;
@@ -96,168 +141,311 @@
         .receipt h3 {
             margin: 0 0 10px;
         }
+        #reservation {
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        #reservationForm {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        #reservationForm div {
+            margin-bottom: 15px;
+        }
+        #reservationForm label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color:#f1f1f1;
+        }
+        #reservationForm input, #reservationForm button {
+            width: 100%;
+            padding: 10px;
+            margin: 0;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #reservationForm button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #reservationForm button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #f5f5f5;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
 
-<div class="navbar">
-    <h1>Restaurant Menu</h1>
-</div>
+<header>
+    <nav>
+        <a href="#hero">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#reservation">Reservation</a>
+    </nav>
+</header>
 
-<div class="container">
-    <div class="menu-section">
-        <h2>Appetizers</h2>
-        <div class="menu-item">
-            <img src="bruschetta.jpg" alt="Bruschetta" class="item-image">
-            <div>
-                <span class="item-name">Bruschetta</span>
-                <p class="item-description">Grilled bread topped with diced tomatoes, basil, and garlic.</p>
+<section class="hero" id="hero">
+    <h1>Welcome to Our Restaurant</h1>
+    <p>Delicious Meals Await You!</p>
+    <button onclick="scrollToSection('menu')">View Menu</button>
+</section>
+
+<section id="menu">
+    <h2>Our Menu</h2>
+    <div class="container">
+        <div class="menu-section">
+            <h2>Appetizers</h2>
+            <div class="menu-item">
+                <img src="bruschetta.jpg" alt="Bruschetta" class="item-image">
+                <div>
+                    <span class="item-name">Bruschetta</span>
+                    <p class="item-description">Grilled bread topped with diced tomatoes, basil, and garlic.</p>
+                </div>
+                <span class="item-price">$6.99</span>
+                <select class="quantity">
+                    <option value="0">Qty</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button class="order-button" onclick="addToOrder('Bruschetta', 6.99, this)">Order</button>
             </div>
-            <span class="item-price">$6.99</span>
-            <select class="quantity">
-                <option value="0">Qty</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <button class="order-button" onclick="addToOrder('Bruschetta', 6.99, this)">Order</button>
-        </div>
-        <div class="menu-item">
-            <img src="stuffed_mushrooms.jpg" alt="Stuffed Mushrooms" class="item-image">
-            <div>
-                <span class="item-name">Stuffed Mushrooms</span>
-                <p class="item-description">Mushrooms filled with cheese and herbs, baked to perfection.</p>
+            <div class="menu-item">
+                <img src="stuffed_mushrooms.jpg" alt="Stuffed Mushrooms" class="item-image">
+                <div>
+                    <span class="item-name">Stuffed Mushrooms</span>
+                    <p class="item-description">Mushrooms filled with cheese and herbs, baked to perfection.</p>
+                </div>
+                <span class="item-price">$7.49</span>
+                <select class="quantity">
+                    <option value="0">Qty</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button class="order-button" onclick="addToOrder('Stuffed Mushrooms', 7.49, this)">Order</button>
             </div>
-            <span class="item-price">$7.49</span>
-            <select class="quantity">
-                <option value="0">Qty</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <button class="order-button" onclick="addToOrder('Stuffed Mushrooms', 7.49, this)">Order</button>
         </div>
+    
+        <div class="menu-section">
+            <h2>Main Courses</h2>
+            <div class="menu-item">
+                <img src="grilled_salmon.jpg" alt="Grilled Salmon" class="item-image">
+                <div>
+                    <span class="item-name">Grilled Salmon</span>
+                    <p class="item-description">Fresh salmon fillet grilled and served with lemon butter sauce.</p>
+                </div>
+                <span class="item-price">$18.99</span>
+                <select class="quantity">
+                    <option value="0">Qty</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button class="order-button" onclick="addToOrder('Grilled Salmon', 18.99, this)">Order</button>
+            </div>
+            <div class="menu-item">
+                <img src="chicken_alfredo.jpg" alt="Chicken Alfredo" class="item-image">
+                <div>
+                    <span class="item-name">Chicken Alfredo</span>
+                    <p class="item-description">Pasta in a creamy Alfredo sauce with grilled chicken.</p>
+                </div>
+                <span class="item-price">$15.99</span>
+                <select class="quantity">
+                    <option value="0">Qty</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button class="order-button" onclick="addToOrder('Chicken Alfredo', 15.99, this)">Order</button>
+            </div>
+        </div>
+    
+        <div class="menu-section">
+            <h2>Desserts</h2>
+            <div class="menu-item">
+                <img src="tiramisu.jpg" alt="Tiramisu" class="item-image">
+                <div>
+                    <span class="item-name">Tiramisu</span>
+                    <p class="item-description">Classic Italian dessert made with coffee and mascarpone.</p>
+                </div>
+                <span class="item-price">$6.99</span>
+                <select class="quantity">
+                    <option value="0">Qty</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button class="order-button" onclick="addToOrder('Tiramisu', 6.99, this)">Order</button>
+            </div>
+            <div class="menu-item">
+                <img src="cheesecake.jpg" alt="Cheesecake" class="item-image">
+                <div>
+                    <span class="item-name">Cheesecake</span>
+                    <p class="item-description">Rich and creamy cheesecake topped with fresh berries.</p>
+                </div>
+                <span class="item-price">$7.49</span>
+                <select class="quantity">
+                    <option value="0">Qty</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button class="order-button" onclick="addToOrder('Cheesecake', 7.49, this)">Order</button>
+            </div>
+        </div>
+    
+        <div class="total" id="total">Total: $0.00</div>
+        <button class="order-button" id="receipt-button" onclick="generateReceipt()">Generate Receipt</button>
+    
+        <div class="receipt" id="receipt"></div>
     </div>
-
-    <div class="menu-section">
-        <h2>Main Courses</h2>
-        <div class="menu-item">
-            <img src="grilled_salmon.jpg" alt="Grilled Salmon" class="item-image">
-            <div>
-                <span class="item-name">Grilled Salmon</span>
-                <p class="item-description">Fresh salmon fillet grilled and served with lemon butter sauce.</p>
-            </div>
-            <span class="item-price">$18.99</span>
-            <select class="quantity">
-                <option value="0">Qty</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <button class="order-button" onclick="addToOrder('Grilled Salmon', 18.99, this)">Order</button>
+    </section>
+    <section id="reservation">
+        <h2>Reservation</h2>
+        <div class="container">
+            <form id="reservationForm">
+                <div>
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div>
+                    <label for="phone">Phone:</label><br>
+                    <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+                </div>
+                <div>
+                    <label for="date">Date:</label><br>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div>
+                    <label for="time">Time:</label><br>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div>
+                    <label for="guests">Number of Guests:</label><br>
+                    <input type="number" id="guests" name="guests" min="1" max="20" value="1" required>
+                </div>
+                <div>
+                    <button type="submit" class="order-button">Reserve Table</button>
+                </div>
+            </form>
+            <div id="reservationConfirmation" class="receipt" style="display: none;"></div>
         </div>
-        <div class="menu-item">
-            <img src="chicken_alfredo.jpg" alt="Chicken Alfredo" class="item-image">
-            <div>
-                <span class="item-name">Chicken Alfredo</span>
-                <p class="item-description">Pasta in a creamy Alfredo sauce with grilled chicken.</p>
-            </div>
-            <span class="item-price">$15.99</span>
-            <select class="quantity">
-                <option value="0">Qty</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <button class="order-button" onclick="addToOrder('Chicken Alfredo', 15.99, this)">Order</button>
-        </div>
-    </div>
+    </section>
 
-    <div class="menu-section">
-        <h2>Desserts</h2>
-        <div class="menu-item">
-            <img src="tiramisu.jpg" alt="Tiramisu" class="item-image">
-            <div>
-                <span class="item-name">Tiramisu</span>
-                <p class="item-description">Classic Italian dessert made with coffee and mascarpone.</p>
-            </div>
-            <span class="item-price">$6.99</span>
-            <select class="quantity">
-                <option value="0">Qty</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <button class="order-button" onclick="addToOrder('Tiramisu', 6.99, this)">Order</button>
-        </div>
-        <div class="menu-item">
-            <img src="cheesecake.jpg" alt="Cheesecake" class="item-image">
-            <div>
-                <span class="item-name">Cheesecake</span>
-                <p class="item-description">Rich and creamy cheesecake topped with fresh berries.</p>
-            </div>
-            <span class="item-price">$7.49</span>
-            <select class="quantity">
-                <option value="0">Qty</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <button class="order-button" onclick="addToOrder('Cheesecake', 7.49, this)">Order</button>
-        </div>
-    </div>
 
-    <div class="total" id="total">Total: $0.00</div>
-    <button class="order-button" id="receipt-button" onclick="generateReceipt()">Generate Receipt</button>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are a family-run restaurant dedicated to providing the best dining experience with fresh ingredients and a welcoming atmosphere.</p>
+    </section>/
+    
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: contact@restaurant.com</p>
+        <p>Phone: (123) 456-7890</p>
+    </section>
 
-    <div class="receipt" id="receipt"></div>
-</div>
+    
+    <footer>
+        <p>&copy; 2024 Restaurant Name. All rights reserved.</p>
+    </footer>
 
-<script>
-    let totalAmount = 0;
-    const orderDetails = [];
-
-    function addToOrder(name, price, button) {
-        const quantitySelect = button.previousElementSibling;
-        const quantity = parseInt(quantitySelect.value);
-        
-        if (quantity > 0) {
-            totalAmount += price * quantity;
-            orderDetails.push({ name, price, quantity });
-            document.getElementById('total').innerText = 'Total: $' + totalAmount.toFixed(2);
-            quantitySelect.value = 0; // Reset quantity after ordering
-        } else {
-            alert('Please select a quantity greater than 0.');
+ 
+    <script>
+        function scrollToSection(sectionID){
+            const section = document.getElementById(sectionID); // Fix: sectionID matches the parameter name
+            section.scrollIntoView({behavior: 'smooth'});
         }
-    }
+        let totalAmount = 0;
+        const orderDetails = [];
+    
+        function addToOrder(name, price, button) {
+            const quantitySelect = button.previousElementSibling;
+            const quantity = parseInt(quantitySelect.value);
 
-    function generateReceipt() {
-        const receiptDiv = document.getElementById('receipt');
-        receiptDiv.style.display = 'block';
-        receiptDiv.innerHTML = '<h3>Receipt</h3>';
-        
-        if (orderDetails.length === 0) {
-            receiptDiv.innerHTML += 'No items ordered.';
-            return;
+            if (quantity > 0) {
+                totalAmount += price * quantity;
+                orderDetails.push({ name, price, quantity });
+                document.getElementById('total').innerText = 'Total: $' + totalAmount.toFixed(2);
+                quantitySelect.value = 0; // Reset quantity after ordering
+            } else {
+                alert('Please select a quantity greater than 0.');
+            }
         }
 
-        orderDetails.forEach(item => {
-            receiptDiv.innerHTML += `${item.name} - $${item.price.toFixed(2)} x ${item.quantity}<br>`;
+        function generateReceipt() {
+            const receiptDiv = document.getElementById('receipt');
+            receiptDiv.style.display = 'block';
+            receiptDiv.innerHTML = '<h3>Receipt</h3>';
+            
+            if (orderDetails.length === 0) {
+                receiptDiv.innerHTML += 'No items ordered.';
+                return;
+            }
+    
+            orderDetails.forEach(item => {
+                receiptDiv.innerHTML += `${item.name} - $${item.price.toFixed(2)} x ${item.quantity}<br>`;
+            });
+            receiptDiv.innerHTML += `<strong>Total: $${totalAmount.toFixed(2)}</strong>`;
+        }
+        document.getElementById('reservationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const guests = document.getElementById('guests').value;
+
+        
+            // Display confirmation message
+            const confirmation = document.getElementById('reservationConfirmation');
+            confirmation.style.display = 'block';
+            confirmation.innerHTML = `
+                <h3>Reservation Confirmed</h3>
+                <p>Thank you, ${name}! Your table for ${guests} guests on ${date} at ${time} has been reserved.</p>
+                <p>A confirmation email will be sent to ${email}.</p>
+            `;
+        
+            // Optionally, reset the form
+            document.getElementById('reservationForm').reset();
         });
-        receiptDiv.innerHTML += `<strong>Total: $${totalAmount.toFixed(2)}</strong>`;
-    }
+
+
 </script>
 
 </body>
